@@ -1,0 +1,244 @@
+/* ================================
+   CONTAINER WRAPPER
+================================ */
+.progress-card {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Responsive padding */
+  @media (min-width: 640px) {
+    .progress-card {
+      padding: 1.5rem;
+    }
+  }
+  
+  /* ================================
+     HEADER: TITLE + ICON
+  ================================ */
+  .flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .flex-header .title-section {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  .icon-box {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: rgba(16, 185, 129, 0.2);
+  }
+  
+  .title-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  @media (min-width: 640px) {
+    .title-text {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .toggle-btn {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    transition: background 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    background: rgba(16, 185, 129, 0.2);
+  }
+  
+  /* ================================
+     GRID LAYOUT
+  ================================ */
+  .stats-grid {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  /* ================================
+     CARD BLOCKS (Games, Trivia, Skills, Courses)
+  ================================ */
+  
+  .stat-card {
+    position: relative;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effects */
+  .stat-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+  
+  /* Glowing hover background overlay */
+  .stat-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(
+      to right,
+      rgba(59, 130, 246, 0.2),
+      rgba(96, 165, 250, 0.1),
+      rgba(37, 99, 235, 0.2)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(6px);
+    z-index: -1;
+  }
+  
+  .stat-card:hover::before {
+    opacity: 1;
+  }
+  
+  /* ================================
+     CARD HEADER: ICON + TITLE + NUMBERS
+  ================================ */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-header .left {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .card-icon-box {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .card-icon-box:hover {
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+  }
+  
+  .card-text-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  @media (min-width: 640px) {
+    .card-text-title {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .card-subtitle {
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+  
+  .progress-score {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .progress-score small {
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+  
+  /* ================================
+     PROGRESS BAR + LABEL
+  ================================ */
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .progress-row span:first-child {
+    color: #9ca3af;
+    font-size: 0.75rem;
+  }
+  
+  .progress-badge {
+    background: rgba(59, 130, 246, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(31, 41, 55, 0.6);
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-top: 0.25rem;
+    position: relative;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    position: relative;
+    transition: width 0.4s ease;
+  }
+  
+  .progress-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Pulse animation */
+  @keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+  

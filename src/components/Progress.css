@@ -1,0 +1,110 @@
+/* Card container */
+.card {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.1);
+    border: 1px solid rgba(0, 128, 0, 0.2);
+}
+
+@media (min-width: 640px) {
+    .card {
+        padding: 24px;
+    }
+}
+
+/* Header: title + icon */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 640px) {
+    .card-header {
+        margin-bottom: 16px;
+    }
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d1d5db;
+}
+
+@media (min-width: 640px) {
+    .card-title {
+        font-size: 1.125rem;
+    }
+}
+
+/* Value Number */
+.value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+@media (min-width: 640px) {
+    .value {
+        font-size: 2rem;
+    }
+}
+
+/* Sub information text */
+.sub-info {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+/* Not Ranked text */
+.not-ranked {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #6b7280;
+}
+
+@media (min-width: 640px) {
+    .not-ranked {
+        font-size: 2rem;
+    }
+}
+
+/* Small text */
+.info-small {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+/* Icons */
+.icon-yellow {
+    height: 24px;
+    width: 24px;
+    color: #fbbf24;
+}
+
+.icon-gray {
+    height: 28px;
+    width: 28px;
+    color: #6b7280;
+}
+
+.icon-green {
+    height: 24px;
+    width: 24px;
+    color: #22c55e;
+}
+
+@media (min-width: 640px) {
+    .icon-yellow, .icon-green {
+        height: 28px;
+        width: 28px;
+    }
+}
