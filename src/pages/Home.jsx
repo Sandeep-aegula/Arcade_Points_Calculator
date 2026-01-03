@@ -33,6 +33,14 @@ const Home = () => {
               >
                 Start Calculating
               </Link>
+              <a
+                href="https://go.cloudskillsboost.google/arcade"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-button-secondary"
+              >
+                Visit Official Arcade
+              </a>
               <Link
                 to="/resources"
                 className="hero-button-secondary"

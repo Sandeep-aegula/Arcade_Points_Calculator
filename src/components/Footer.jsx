@@ -1,11 +1,11 @@
 import React from 'react';
-import { Github, ExternalLink, Heart, Cloud, Award } from 'lucide-react';
+import { Github, ExternalLink, Heart, Cloud, Award, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 border-t-2 border-gray-700 mt-16 shadow-lg">
+    <footer className="bg-gray-900 border-t-2 border-gray-700 mt-16 shadow-lg relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}
@@ -20,7 +20,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://cloud.google.com/arcade"
+                href="https://go.cloudskillsboost.google/arcade"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors duration-200 flex items-center space-x-1"
@@ -73,29 +73,45 @@ const Footer = () => {
 
           {/* Project Info */}
           <div className="space-y-4">
-            <h3 className="text-white font-semibold">About</h3>
+            <h3 className="text-white font-semibold">Connect</h3>
             <div className="space-y-2 text-sm text-gray-400">
               <p>
                 Built with ❤️ for the Google Cloud community to help track arcade progress and celebrate achievements.
               </p>
               <div className="flex items-center space-x-4 pt-2">
                 <a
-                  href="https://github.com/Sandeep-aegula/Arcade_Points_Calculator"
+                  href="https://x.com/sandeepaegulax"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-1"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                  aria-label="X (Twitter)"
                 >
-                  <Github size={16} />
-                  <span>Frontend</span>
+                  <img src="/X.svg" alt="X" className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://github.com/Sandeep-aegula/Arcade_Points_Calculator_Backend"
+                  href="https://linkedin.com/in/Sandeep-aegula"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-1"
+                  className="text-gray-300 hover:text-blue-600 transition-colors duration-200"
+                  aria-label="LinkedIn"
                 >
-                  <Github size={16} />
-                  <span>Backend</span>
+                  <Linkedin size={20} />
+                </a>
+                <a
+                  href="mailto:aegulasandeep@gmail.com"
+                  className="text-gray-300 hover:text-red-400 transition-colors duration-200"
+                  aria-label="Email"
+                >
+                  <Mail size={20} />
+                </a>
+                <a
+                  href="https://github.com/Sandeep-aegula"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors duration-200"
+                  aria-label="GitHub"
+                >
+                  <Github size={20} />
                 </a>
               </div>
             </div>

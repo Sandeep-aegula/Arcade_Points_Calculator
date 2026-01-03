@@ -18,6 +18,7 @@
   color: #fff;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .background-gradient {
@@ -733,10 +734,18 @@
   color: #ffffff;
 }
 
+.nav-link.external-link {
+  background-color: #059669;
+}
+
+.nav-link.external-link:hover {
+  background-color: #047857;
+}
+
 /* Page Styles */
 .page-main {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #000000, #111827, #000000);
+  background: #000;
   color: #ffffff;
   padding-top: 4rem;
 }

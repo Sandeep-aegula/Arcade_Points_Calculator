@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Calculator, Home, BookOpen } from 'lucide-react';
+import { Calculator, Home, BookOpen, ExternalLink } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
@@ -30,6 +30,15 @@ const Navigation = () => {
                 {label}
               </Link>
             ))}
+            <a
+              href="https://cloud.google.com/arcade"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link external-link"
+            >
+              <ExternalLink size={16} />
+              Arcade Official
+            </a>
           </div>
         </div>
       </div>
