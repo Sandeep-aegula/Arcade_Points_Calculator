@@ -1,4 +1,5 @@
 import React from "react";
+import { Gift, X } from "lucide-react";
 import "./FacilitatorProgress.css";
 
 const FacilitatorProgress = ({ stats }) => {
@@ -43,8 +44,43 @@ const FacilitatorProgress = ({ stats }) => {
         return Math.round(((g + t + s + c) / 4) * 100);
     };
 
+    // Check if user has completed any milestone
+    const hasCompletedAnyMilestone = milestones.some(m => calculateCompletion(m.req) === 100);
+    const isEligibleForSwags = hasCompletedAnyMilestone;
+
     return (
         <div className="milestone-container">
+            {/* Swag Eligibility Section */}
+            <div className={`swag-eligibility-card ${isEligibleForSwags ? 'eligible' : 'not-eligible'}`}>
+                <div className="swag-eligibility-header">
+                    <div className="swag-icon">
+                        {isEligibleForSwags ? (
+                            <Gift className="gift-icon eligible-icon" size={40} />
+                        ) : (
+                            <X className="x-icon not-eligible-icon" size={40} />
+                        )}
+                    </div>
+                    <div className="swag-content">
+                        <h2 className="swag-title">
+                            {isEligibleForSwags ? 'Eligible for Swags!' : 'Not Eligible for Swags'}
+                        </h2>
+                        <p className="swag-description">
+                            {isEligibleForSwags
+                                ? 'Congratulations! You have completed at least one milestone and are eligible to claim your Google Cloud Arcade swags.'
+                                : 'Complete any milestone to become eligible for Google Cloud Arcade swags and exclusive rewards.'
+                            }
+                        </p>
+                    </div>
+                </div>
+                {isEligibleForSwags && (
+                    <div className="swag-claim-info">
+                        <p className="claim-text">
+                            Visit the <a href="https://cloud.google.com/arcade" target="_blank" rel="noopener noreferrer" className="arcade-link">Google Cloud Arcade</a> website to claim your rewards!
+                        </p>
+                    </div>
+                )}
+            </div>
+
             <h1 className="main-title">Milestones Progress</h1>
 
             <div className="milestone-grid">

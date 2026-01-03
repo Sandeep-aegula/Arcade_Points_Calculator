@@ -5,6 +5,90 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* Swag Eligibility Section */
+.swag-eligibility-card {
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 2px solid;
+    transition: all 0.3s ease;
+}
+
+.swag-eligibility-card.eligible {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.swag-eligibility-card.not-eligible {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.swag-eligibility-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.swag-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gift-icon.eligible-icon {
+    color: #10b981;
+}
+
+.x-icon.not-eligible-icon {
+    color: #ef4444;
+}
+
+.swag-content {
+    flex: 1;
+}
+
+.swag-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+}
+
+.swag-description {
+    font-size: 0.875rem;
+    color: #d1d5db;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.swag-claim-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.claim-text {
+    font-size: 0.875rem;
+    color: #10b981;
+    margin: 0;
+    font-weight: 500;
+}
+
+.arcade-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.arcade-link:hover {
+    text-decoration: underline;
+}
+
 .main-title {
     font-size: 1.5rem;
     font-weight: 700;
