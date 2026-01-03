@@ -1,0 +1,131 @@
+.badge-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+    color: white;
+    transition: 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.invalid-badge {
+    opacity: 0.6;
+    border-color: rgba(255, 0, 0, 0.3);
+}
+
+.invalid-badge:hover {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.badge-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.badge-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+}
+
+.badge-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Title */
+.badge-title {
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+}
+
+/* Info Section */
+.badge-info {
+    font-size: 14px;
+    color: #cfcfcf;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.badge-info-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Category Pill */
+.badge-category {
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Category Styles */
+.badge-category.trivia {
+    background: rgba(255, 211, 84, 0.2);
+    color: #ffd354;
+}
+
+.badge-category.basecamp {
+    background: rgba(82, 255, 140, 0.2);
+    color: #52ff8c;
+}
+
+.badge-category.arcadequiz {
+    background: rgba(188, 102, 255, 0.2);
+    color: #bc66ff;
+}
+
+.badge-category.certification {
+    background: rgba(94, 150, 255, 0.2);
+    color: #79a6ff;
+}
+
+.badge-category.default {
+    background: rgba(180, 180, 180, 0.2);
+    color: #d1d1d1;
+}
+
+/* Points Section */
+.badge-points {
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.trophy-icon {
+    color: #ffd859;
+}
+
+/* Validity Indicator */
+.badge-validity {
+    margin-top: 8px;
+}
+
+.invalid-text {
+    font-size: 12px;
+    color: #ff6b6b;
+    font-style: italic;
+}

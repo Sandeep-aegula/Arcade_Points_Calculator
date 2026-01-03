@@ -1,9 +1,103 @@
-import './FacilitatorProgress.css';
-const FacilitatorProgress = () => {
+import React from "react";
+import "./FacilitatorProgress.css";
+
+const FacilitatorProgress = ({ stats }) => {
+    const counts = {
+        games: stats.arcade_games || 0,
+        trivia: stats.trivia_badges || 0,
+        skillBadges: stats.skill_badges || 0,
+        courses: stats.lab_free_badges || 0
+    };
+
+    const milestones = [
+        {
+            id: 1,
+            req: { games: 6, trivia: 5, skills: 14, courses: 6 },
+            bonus: 2,
+        },
+        {
+            id: 2,
+            req: { games: 8, trivia: 6, skills: 28, courses: 12 },
+            bonus: 8,
+        },
+        {
+            id: 3,
+            req: { games: 10, trivia: 7, skills: 38, courses: 18 },
+            bonus: 15,
+        },
+        {
+            id: 4,
+            req: { games: 12, trivia: 8, skills: 52, courses: 24 },
+            bonus: 25,
+            isUltimate: true
+        },
+    ];
+
+    const calculateCompletion = (req) => {
+        const g = Math.min(counts.games, req.games) / req.games;
+        const t = Math.min(counts.trivia, req.trivia) / req.trivia;
+        const s = Math.min(counts.skillBadges, req.skills) / req.skills;
+        const c = Math.min(counts.courses, req.courses) / req.courses;
+
+        // Average progress across all 4 requirements
+        return Math.round(((g + t + s + c) / 4) * 100);
+    };
+
     return (
-        <div>
-           <div class="bg-black/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg border border-green-800/20 mb-6"><div class="flex items-center justify-between cursor-pointer"><div class="flex items-center gap-3"><div class="p-2 rounded-lg bg-green-900/20"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target h-5 w-5 text-gray-400" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div><h3 class="text-lg sm:text-xl font-semibold text-white">Facilitator Progress</h3></div><button class="p-2 hover:bg-green-900/20 rounded-full transition-colors"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="h-4 w-4 text-gray-400" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg></button></div><div class="overflow-hidden" style="height: auto; opacity: 1;"><div class="mt-6"><div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4"><div class="group relative bg-gradient-to-br from-black/90 via-black/70 to-blue-950/40 rounded-xl p-4 border border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 hover:scale-[1.02]" style="opacity: 1; transform: none;"><div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 via-blue-400/10 to-blue-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div><div class="relative z-10"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><div class="p-2 bg-blue-500/20 rounded-lg border border-blue-500/40 group-hover:bg-blue-500/30 group-hover:shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad2 lucide-gamepad-2 h-4 w-4 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg></div><div><h4 class="text-lg sm:text-xl font-semibold text-white text-sm font-bold text-white group-hover:text-blue-100 transition-colors duration-300">Games</h4><p class="text-xs text-blue-400/70">Interactive</p></div></div><div class="text-right"><div class="text-2xl font-bold text-white group-hover:text-blue-100 transition-colors duration-300 flex items-baseline gap-1"><span>0</span><span class="text-xs text-gray-400">/ 12</span></div></div></div><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs text-gray-400">Progress</span><span class="text-xs font-bold text-blue-400 bg-blue-500/15 px-2 py-0.5 rounded">0%</span></div><div class="relative"><div class="w-full bg-gray-800/60 rounded-full h-2 overflow-hidden"><div class="h-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-400 shadow-sm shadow-blue-500/40 relative" style="width: 0%;"><div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div></div></div></div></div></div></div><div class="group relative bg-gradient-to-br from-black/90 via-black/70 to-purple-950/40 rounded-xl p-4 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/25 hover:scale-[1.02]" style="opacity: 1; transform: none;"><div class="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 via-purple-400/10 to-purple-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div><div class="relative z-10"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><div class="p-2 bg-purple-500/20 rounded-lg border border-purple-500/40 group-hover:bg-purple-500/30 group-hover:shadow-lg group-hover:shadow-purple-500/30 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain h-4 w-4 text-purple-400 group-hover:text-purple-300 transition-colors duration-300" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></div><div><h4 class="text-lg sm:text-xl font-semibold text-white text-sm font-bold text-white group-hover:text-purple-100 transition-colors duration-300">Trivia</h4><p class="text-xs text-purple-400/70">Knowledge</p></div></div><div class="text-right"><div class="text-2xl font-bold text-white group-hover:text-purple-100 transition-colors duration-300 flex items-baseline gap-1"><span>0</span><span class="text-xs text-gray-400">/ 8</span></div></div></div><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs text-gray-400">Progress</span><span class="text-xs font-bold text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded">0%</span></div><div class="relative"><div class="w-full bg-gray-800/60 rounded-full h-2 overflow-hidden"><div class="h-2 rounded-full bg-gradient-to-r from-purple-500 to-purple-400 shadow-sm shadow-purple-500/40 relative" style="width: 0%;"><div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div></div></div></div></div></div></div><div class="group relative bg-gradient-to-br from-black/90 via-black/70 to-yellow-950/40 rounded-xl p-4 border border-yellow-500/30 hover:border-yellow-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/25 hover:scale-[1.02]" style="opacity: 1; transform: none;"><div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-500/20 via-yellow-400/10 to-yellow-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div><div class="relative z-10"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><div class="p-2 bg-yellow-500/20 rounded-lg border border-yellow-500/40 group-hover:bg-yellow-500/30 group-hover:shadow-lg group-hover:shadow-yellow-500/30 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award h-4 w-4 text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg></div><div><h4 class="text-lg sm:text-xl font-semibold text-white text-sm font-bold text-white group-hover:text-yellow-100 transition-colors duration-300">Skills</h4><p class="text-xs text-yellow-400/70">Technical</p></div></div><div class="text-right"><div class="text-2xl font-bold text-white group-hover:text-yellow-100 transition-colors duration-300 flex items-baseline gap-1"><span>8</span><span class="text-xs text-gray-400">/ 52</span></div></div></div><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs text-gray-400">Progress</span><span class="text-xs font-bold text-yellow-400 bg-yellow-500/15 px-2 py-0.5 rounded">15%</span></div><div class="relative"><div class="w-full bg-gray-800/60 rounded-full h-2 overflow-hidden"><div class="h-2 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-400 shadow-sm shadow-yellow-500/40 relative" style="width: 15.3846%;"><div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div></div></div></div></div></div></div><div class="group relative bg-gradient-to-br from-black/90 via-black/70 to-green-950/40 rounded-xl p-4 border border-green-500/30 hover:border-green-400/60 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/25 hover:scale-[1.02]" style="opacity: 1; transform: none;"><div class="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 via-green-400/10 to-green-600/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div><div class="relative z-10"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><div class="p-2 bg-green-500/20 rounded-lg border border-green-500/40 group-hover:bg-green-500/30 group-hover:shadow-lg group-hover:shadow-green-500/30 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-4 w-4 text-green-400 group-hover:text-green-300 transition-colors duration-300" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></div><div><h4 class="text-lg sm:text-xl font-semibold text-white text-sm font-bold text-white group-hover:text-green-100 transition-colors duration-300">Courses</h4><p class="text-xs text-green-400/70">Hands-on</p></div></div><div class="text-right"><div class="text-2xl font-bold text-white group-hover:text-green-100 transition-colors duration-300 flex items-baseline gap-1"><span>0</span><span class="text-xs text-gray-400">/ 24</span></div></div></div><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs text-gray-400">Progress</span><span class="text-xs font-bold text-green-400 bg-green-500/15 px-2 py-0.5 rounded">0%</span></div><div class="relative"><div class="w-full bg-gray-800/60 rounded-full h-2 overflow-hidden"><div class="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-400 shadow-sm shadow-green-500/40 relative" style="width: 0%;"><div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div></div></div></div></div></div></div></div></div></div></div>
+        <div className="milestone-container">
+            <h1 className="main-title">Milestones Progress</h1>
+
+            <div className="milestone-grid">
+                {milestones.map((m) => {
+                    const completion = calculateCompletion(m.req);
+                    const isCompleted = completion === 100;
+
+                    return (
+                        <div className={`milestone-card ${isCompleted ? 'completed-card' : ''}`} key={m.id}>
+                            <div className="badge-number">{m.isUltimate ? 'U' : m.id}</div>
+
+                            <div className="milestone-header">
+                                <h2>{m.isUltimate ? 'Ultimate Milestone' : `Milestone #${m.id}`}</h2>
+                                <p>Complete requirements to unlock</p>
+                            </div>
+
+                            <div className="progress-list">
+                                <Item label="Arcade Games" current={counts.games} target={m.req.games} />
+                                <Item label="Trivia Games" current={counts.trivia} target={m.req.trivia} />
+                                <Item label="Skill Badges" current={counts.skillBadges} target={m.req.skills} />
+                                <Item label="Courses" current={counts.courses} target={m.req.courses} />
+                            </div>
+
+                            <div className="progress-bar">
+                                <div
+                                    className="progress-fill"
+                                    style={{ width: `${completion}%` }}
+                                ></div>
+                            </div>
+
+                            <p className="progress-text">{completion}% Completed</p>
+
+                            <button className={`bonus-btn ${isCompleted ? 'unlocked' : ''}`}>
+                                {isCompleted ? 'Unlocked!' : `+${m.bonus} Bonus`}
+                            </button>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
-    )
-}
+    );
+};
+
+const Item = ({ label, current, target }) => {
+    const isMet = current >= target;
+    return (
+        <div className="milestone-item">
+            <span style={{ color: isMet ? '#4ade80' : '#9ca3af' }}>{label}</span>
+            <span className="item-value" style={{ color: isMet ? '#4ade80' : '#fff' }}>
+                {current}/{target}
+            </span>
+        </div>
+    );
+};
+
 export default FacilitatorProgress;
