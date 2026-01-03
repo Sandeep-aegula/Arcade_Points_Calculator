@@ -28,6 +28,10 @@
   z-index: 0;
 }
 
+.bg-dark {
+  background-color: #000 !important;
+}
+
 .content-wrapper {
   flex: 1;
   max-width: 1200px;

@@ -51,7 +51,7 @@ const BadgeCard = ({ badge, index }) => {
                 
                 {!badge.isValid && (
                     <div className="badge-validity">
-                        <span className="invalid-text">Not in current season</span>
+                        <span className="invalid-text">This course is not from this cohort</span>
                     </div>
                 )}
             </div>

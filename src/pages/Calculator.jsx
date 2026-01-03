@@ -110,14 +110,14 @@ const Calculator = () => {
               <form onSubmit={handleSubmit} className="search-form">
                 <div className="search-input-wrapper">
                   <div className="search-input-glow"></div>
-                  <div className="search-input-container">
+                  <div className="search-input-container px-5 flex gap-4">
                     <Search className="search-icon" size={20} />
                     <input
                       type="url"
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
                       placeholder="https://www.skills.google/public_profiles/..."
-                      className="search-input"
+                      className="search-input flex-1"
                       required
                     />
                     <button

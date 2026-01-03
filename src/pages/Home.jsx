@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <Navigation />
-      <main className="page-main">
+      <main className="page-main bg-dark">
       {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-gradient"></div>
