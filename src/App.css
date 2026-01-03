@@ -23,7 +23,7 @@
 .background-gradient {
   position: fixed;
   inset: 0;
-  background: linear-gradient(to bottom right, #000, #000, rgba(30, 58, 138, 0.3));
+  background: #000;
   z-index: 0;
 }
 

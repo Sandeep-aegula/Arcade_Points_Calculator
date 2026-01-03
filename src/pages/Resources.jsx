@@ -1,7 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { skillBadgeData } from '../../data/SkillBadgeData';
 import { labFreeCourseData } from '../../data/LabFreeCourseData';
-import Navigation from '../components/Navigation';import ResourceStats from '../components/ResourceStats';import { motion } from 'framer-motion';
+import Navigation from '../components/Navigation';
+import ResourceStats from '../components/ResourceStats';
+import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
 import { BookOpen, Award, ChevronDown, Filter, Search } from 'lucide-react';
 
 const Resources = () => {
@@ -391,6 +394,7 @@ const Resources = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 };

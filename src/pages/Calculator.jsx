@@ -5,6 +5,7 @@ import FacilitatorProgress from '../components/FacilitatorProgress';
 import StatsCards from '../components/StatsCards';
 import ResourceStats from '../components/ResourceStats';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 import { Search, Loader2, AlertCircle, Trophy, Award, Target, CircleAlert, BookOpen, Award as AwardIcon, Gamepad2, Brain, ChevronDown, MapPin, Zap, Star } from 'lucide-react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import '../App.css';
@@ -308,6 +309,7 @@ const Calculator = () => {
         </div>
       </div>
     </main>
+    <Footer />
     </>
   );
 };

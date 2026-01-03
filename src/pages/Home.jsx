@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Calculator, BookOpen, Trophy, Zap, Target, Award } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import DataOverview from '../components/DataOverview';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -155,6 +156,7 @@ const Home = () => {
         </div>
       </div>
     </main>
+    <Footer />
     </>
   );
 };
