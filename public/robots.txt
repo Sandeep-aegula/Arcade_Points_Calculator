@@ -1,0 +1,12 @@
+# User-agent: * means these rules apply to all search engines (Google, Bing, etc.)
+User-agent: *
+
+# Allow crawling of the whole site
+Allow: /
+
+# Disallow crawling of specific private folders or API routes if they exist
+Disallow: /api/
+Disallow: /private/
+
+# Link to your sitemap (Update this with your actual Vercel URL)
+Sitemap: https://google-arcade-points-calculator.vercel.app/sitemap.xml
