@@ -44,10 +44,12 @@ const BadgeCard = ({ badge, index }) => {
                     </span>
                 </div>
 
-                <div className="badge-points">
-                    <Award size={16} className="trophy-icon" />
-                    <span>{badge.points} pts</span>
-                </div>
+                {badge.isValid && (
+                    <div className="badge-points">
+                        <Award size={16} className="trophy-icon" />
+                        <span>{badge.points} pts</span>
+                    </div>
+                )}
                 
                 {!badge.isValid && (
                     <div className="badge-validity">

@@ -257,7 +257,7 @@ const Calculator = () => {
                 >
                   <div className="badges-header">
                     <h3 className="badges-title">Badge History</h3>
-                    <span className="badges-count">{data.badges?.length || 0} total badges</span>
+                    <span className="badges-count">{data.badges?.filter(badge => badge.isValid).length || 0} total badges</span>
                   </div>
 
                   {/* Search Bar */}
@@ -276,19 +276,20 @@ const Calculator = () => {
 
                   <div className="badges-grid">
                     {data.badges
+                      ?.filter(badge => badge.isValid)
                       ?.filter(badge =>
                         badge.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                         badge.category.toLowerCase().includes(searchTerm.toLowerCase())
                       )
                       ?.sort((a, b) => new Date(b.earned || '1970-01-01') - new Date(a.earned || '1970-01-01'))
-                      ?.slice(0, showAllBadges ? data.badges.length : 10)
+                      ?.slice(0, showAllBadges ? data.badges.filter(badge => badge.isValid).length : 10)
                       ?.map((badge, index) => (
                         <BadgeCard key={index} badge={badge} index={index} />
                       ))}
                   </div>
 
                   {/* Show More/Less Button */}
-                  {data.badges && data.badges.length > 10 && (
+                  {data.badges && data.badges.filter(badge => badge.isValid).length > 10 && (
                     <div className="text-center mt-6">
                       <button
                         onClick={() => setShowAllBadges(!showAllBadges)}

@@ -112,18 +112,18 @@ const ResourceStats = ({ completedBadges = [] }) => {
       {/* Level Distribution */}
       <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
         <h3 className="text-lg font-semibold text-white mb-4">Skill Badge Levels</h3>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {Object.entries(levelStats).map(([level, count]) => (
             <div key={level} className="flex items-center justify-between">
-              <span className="text-gray-300">{level}</span>
-              <div className="flex items-center gap-2">
-                <div className="w-16 bg-gray-700 rounded-full h-2">
+              <span className="text-gray-300 text-sm sm:text-base">{level}</span>
+              <div className="flex items-center gap-2 flex-1 ml-4">
+                <div className="flex-1 bg-gray-700 rounded-full h-2 min-w-0">
                   <div
-                    className="bg-blue-500 h-2 rounded-full"
+                    className="bg-blue-500 h-2 rounded-full transition-all duration-300"
                     style={{ width: `${(count / totalSkillBadges) * 100}%` }}
                   ></div>
                 </div>
-                <span className="text-sm text-gray-400 w-8 text-right">{count}</span>
+                <span className="text-sm text-gray-400 w-8 text-right flex-shrink-0">{count}</span>
               </div>
             </div>
           ))}
